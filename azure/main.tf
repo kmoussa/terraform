@@ -24,6 +24,12 @@ resource "azurerm_resource_group" "rg" {
         Team = "DevOps"
     }
 }
+
+resource "azurerm_logic_app_workflow" "rg" {
+  name                = "workflow1"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
 resource "azurerm_virtual_network" "vnet" {
     name = "myTFVnet"
     address_space = ["10.0.0.0/16"]
